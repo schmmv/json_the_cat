@@ -1,25 +1,26 @@
 /**
- * Function that fetches cat breed information from TheCatAPI and print it to the console
- * @param {string} breed the desired breed to search, taken from command line
+ * Function that fetches cat breed information from TheCatAPI 
+ * @param {string} breed to search
+ * @param {callback} callback that handles the response
  */
 
 const request = require('request');
 
-const requestBreedInfo = function(breed) {
+const fetchBreedDescription = function(breed, callback) {
   const url = `https://api.thecatapi.com/v1/breeds/search?q=${breed}`;
   
   request(url, (error, response, body) => {
     if (error) {
-      console.log('Request error: ', error);
+      callback(error);
       return;
     }
     const data = JSON.parse(body)[0];
     if (!data) {
-      console.log("Requested breed is not found");
+      callback("Requested breed is not found");
       return;
     }
-    console.log(data.description);
+    callback(null, data.description);
   });
 };
 
-requestBreedInfo(process.argv.slice(2));
+module.exports = { fetchBreedDescription };
