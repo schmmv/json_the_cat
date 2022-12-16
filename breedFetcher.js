@@ -1,5 +1,5 @@
 /**
- * Function that fetches cat breed information from TheCatAPI 
+ * Function that fetches cat breed information from TheCatAPI
  * @param {string} breed to search
  * @param {callback} callback that handles the response
  */
@@ -11,12 +11,12 @@ const fetchBreedDescription = function(breed, callback) {
   
   request(url, (error, response, body) => {
     if (error) {
-      callback(error);
+      callback(error, null);
       return;
     }
     const data = JSON.parse(body)[0];
     if (!data) {
-      callback("Requested breed is not found");
+      callback("Requested breed is not found", null);
       return;
     }
     callback(null, data.description);
