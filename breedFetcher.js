@@ -1,5 +1,5 @@
 /**
- * Function that fetches cat breed information from TheCatAPI
+ * Function that fetches cat breed information from TheCatAPI and print it to the console
  * @param {string} breed the desired breed to search, taken from command line
  */
 
