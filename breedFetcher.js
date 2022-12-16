@@ -1,5 +1,4 @@
 const request = require('request');
-// const breed = process.argv.slice(2);
 
 const requestBreedInfo = function(breed) {
   const url = `https://api.thecatapi.com/v1/breeds/search?q=${breed}`;
