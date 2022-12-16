@@ -1,3 +1,8 @@
+/**
+ * Function that fetches cat breed information from TheCatAPI
+ * @param {string} breed the desired breed to search, taken from command line
+ */
+
 const request = require('request');
 
 const requestBreedInfo = function(breed) {
